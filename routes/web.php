@@ -69,3 +69,7 @@ Route::middleware(['auth', 'verified'])->prefix('/admin')->group(function() {
 });
 
 Route::get('/', [ PublicCarsController::class, 'index' ])->name('home');
+
+Route::fallback(function () {
+    abort(404);
+});
